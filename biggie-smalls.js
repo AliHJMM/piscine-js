@@ -1,2 +1,2 @@
-smalls = Math.min();
-biggie = Math.max();
+smalls = Number.NEGATIVE_INFINITY();
+biggie = Number.POSITIVE_INFINITY();
