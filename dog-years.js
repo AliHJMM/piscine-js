@@ -9,5 +9,5 @@ const dogYears = (planetName, dogAgeinSeconds) => {
     uranus: earthInSeconds * 84.016846,
     neptune: earthInSeconds * 164.79132,
   };
-  return Number((dogAgeinSeconds / planetInSeconds[planetName] / earthInDogYears).toFixed(2));
+  return Number((dogAgeinSeconds / planetInSeconds[planetName] * earthInDogYears).toFixed(2));
 };;
