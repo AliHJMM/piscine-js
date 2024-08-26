@@ -1,2 +1,2 @@
   const getKey = (key) => sourceObject[key] ;
-  const setKey = (key,value) => sourceObject[key] = value ;
+  const setKey = (key,value) => value = sourceObject[key];
