@@ -1,4 +1,4 @@
-const str = String
-const num = number
-const bool = boolean
+const str = "Ali"
+const num = 20
+const bool = true
 const undef = undefined
