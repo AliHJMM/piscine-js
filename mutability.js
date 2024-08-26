@@ -16,9 +16,11 @@ const clone2 = {
   country: "US",
 };
 
+
 person.age++;
 person.country = `FR`;
-samePerson = { ...person };
+
+const samePerson = { ...person };
 
 console.log("Person:", person);
 console.log("Clone1:", clone1);
