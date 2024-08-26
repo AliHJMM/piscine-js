@@ -4,23 +4,13 @@ const person = {
   country: "US",
 };
 
-const clone1 = {
-  name: "Rick",
-  age: 77,
-  country: "US",
-};
-
-const clone2 = {
-  name: "Rick",
-  age: 77,
-  country: "US",
-};
+const clone1 = { ...person };
+const clone2 = { ...person };
+const samePerson = person;
 
 
 person.age++;
 person.country = `FR`;
-
-const samePerson = { ...person };
 
 console.log("Person:", person);
 console.log("Clone1:", clone1);
