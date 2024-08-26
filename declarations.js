@@ -13,7 +13,7 @@ const nested = {
   arr: [4, undefined, "2"],
   obj: {
     str: "Hadi",
-    age: 16,
+    num: 16,
     bool: true,
   },
 };
