@@ -1,5 +1,5 @@
 const escapeStr = `\` , \\ , \/ ,  \" , \' `;
-const arr = [4,'2']
+const arr = [4,'2'];
 const obj = {
     str: "Ali",
     num: 20,
@@ -13,7 +13,8 @@ const obj = {
             bool:true,
         }
     }
-}
+};
+Object.freeze(arr);
 Object.freeze(obj);
 Object.freeze(obj.nested);
 Object.freeze(obj.nested.arr);
