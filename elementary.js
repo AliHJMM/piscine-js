@@ -1,4 +1,4 @@
-const multiply = (a,b) => {
+const multiply = (a, b) => {
     let result = 0;
     for (let i = 0; i < b; i++) {
         result += a;
@@ -6,7 +6,11 @@ const multiply = (a,b) => {
     return result;
 };
 
-const divide = (a,b) => {
+const divide = (a, b) => {
+    if (b === 0) {
+        return Infinity; 
+    }
+
     let result = 0;
     let dividend = a;
 
@@ -17,12 +21,16 @@ const divide = (a,b) => {
     return result;
 };
 
-const modulo = (a,b) => {
+const modulo = (a, b) => {
+    if (b === 0) {
+        return undefined;
+    }
 
-}; let dividend = a;
+    let dividend = a;
 
-while (dividend >= b) {
-    dividend -= b;
-}
+    while (dividend >= b) {
+        dividend -= b;
+    }
 
-return dividend;
+    return dividend;
+};
