@@ -1,16 +1,10 @@
 const multiply = (a, b) => {
     let result = 0;
-    let negative = false;
+    let isNegative = (a < 0) !== (b < 0); // Determine if the result should be negative
 
-    // Determine if the result should be negative
-    if (b < 0) {
-        b = -b;
-        negative = !negative;
-    }
-    if (a < 0) {
-        a = -a;
-        negative = !negative;
-    }
+    // Work with absolute values for the multiplication logic
+    a = Math.abs(a);
+    b = Math.abs(b);
 
     // Perform repeated addition
     for (let i = 0; i < b; i++) {
@@ -18,38 +12,55 @@ const multiply = (a, b) => {
     }
 
     // If the result should be negative, negate it
-    if (negative) {
+    if (isNegative) {
         result = -result;
     }
 
     return result;
 };
 
+
+
 const divide = (a, b) => {
     if (b === 0) {
-        return Infinity; // Or use another value to represent undefined division
+        return Infinity; // Return Infinity for undefined division
     }
 
     let result = 0;
-    let dividend = a;
+    let dividend = Math.abs(a);
+    let divisor = Math.abs(b);
 
-    while (dividend >= b) {
-        dividend -= b;
+    // Perform repeated subtraction
+    while (dividend >= divisor) {
+        dividend -= divisor;
         result++;
+    }
+
+    // Determine the sign of the result
+    if ((a < 0) !== (b < 0)) {
+        result = -result;
     }
 
     return result;
 };
 
+
 const modulo = (a, b) => {
     if (b === 0) {
-        return undefined; // Or use another value to represent undefined modulo
+        return undefined; // Return undefined for undefined modulo
     }
 
-    let dividend = a;
+    let dividend = Math.abs(a);
+    let divisor = Math.abs(b);
 
-    while (dividend >= b) {
-        dividend -= b;
+    // Perform repeated subtraction
+    while (dividend >= divisor) {
+        dividend -= divisor;
+    }
+
+    // Determine the sign of the result
+    if (a < 0) {
+        dividend = -dividend;
     }
 
     return dividend;
