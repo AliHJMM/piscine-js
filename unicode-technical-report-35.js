@@ -31,4 +31,6 @@ function format(date, f) {
         "Saturday",
     ];
     const sD = lD.map((d) => d.slice(0, 3));
-    
+    // Day
+    f = f.replace(/dd/g, ("0" + d.date()).slice(-2));
+    f = f.replace(/d/g, d.date());
