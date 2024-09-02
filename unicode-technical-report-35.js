@@ -52,3 +52,5 @@ function format(date, f) {
     if (d.year() < 0) d.setFullYear(-d.year());
     f = f.replace(/yyyy/g, d.year().toString().padStart(4, "0"));
     f = f.replace(/y/g, d.year().toString().replace(/^0+/, ""));
+      // AM/PM
+      f = f.replace(/a/g, d.hours() < 12 ? "AM" : "PM");
