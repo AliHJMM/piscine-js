@@ -6,3 +6,6 @@ function dayOfTheYear(date) {
     }
     return days;
 }
+function isFirstofFirst(date) {
+    return date.getDate() === 1 && date.getMonth() === 0;
+}
