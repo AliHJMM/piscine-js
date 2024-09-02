@@ -45,3 +45,6 @@ function format(date, f) {
   // Second
   f = f.replace(/ss/g, ("0" + d.getSeconds()).slice(-2));
   f = f.replace(/s/g, d.getSeconds());
+   // Era
+   f = f.replace(/GGGG/g, d.year() < 0 ? "Before Christ" : "Anno Domini");
+   f = f.replace(/G/g, d.year() < 0 ? "BC" : "AD");
