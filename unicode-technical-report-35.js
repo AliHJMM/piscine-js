@@ -39,3 +39,6 @@ function format(date, f) {
       f = f.replace(/H/g, d.hours());
       f = f.replace(/hh/g, ("0" + (d.hours() % 12 || 12)).slice(-2));
       f = f.replace(/h/g, d.hours() % 12 || 12);
+        // Minute
+    f = f.replace(/mm/g, ("0" + d.getMinutes()).slice(-2));
+    f = f.replace(/m/g, d.getMinutes());
