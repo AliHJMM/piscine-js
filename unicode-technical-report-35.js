@@ -20,3 +20,15 @@ function format(date, f) {
         "November",
         "December",
     ];
+    const sM = lM.map((m) => m.slice(0, 3));
+    const lD = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ];
+    const sD = lD.map((d) => d.slice(0, 3));
+    
