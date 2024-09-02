@@ -22,3 +22,13 @@ function isBefore(d1, d2) {
     return false;
 }
 
+function isFuture(date) {
+    if (!isValid(date)) {
+        return false;
+    }
+    if (new Date(date).getTime() > Date.now()) {
+        return true;
+    }
+    return false;
+}
+
