@@ -54,3 +54,13 @@ function format(date, f) {
     f = f.replace(/y/g, d.year().toString().replace(/^0+/, ""));
       // AM/PM
       f = f.replace(/a/g, d.hours() < 12 ? "AM" : "PM");
+         // Month
+    f = f.replace(
+        /(?<!M)MM(?!M)/g,
+        (d.month() + 1).toString().length < 10
+            ? "0" + (d.month() + 1)
+            : d.month() + 1
+    );
+    f = f.replace(/(?<!(M|P|A))M(?!M)/g, d.month() + 1);
+    f = f.replace(/MMMM/g, lM[d.month()]);
+    f = f.replace(/MMM/g, sM[d.month()].slice(0, 3));
