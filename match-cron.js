@@ -20,3 +20,18 @@ function matchCron(inputCron, date) {
                 break;
         }
     });
+
+    date = {
+        minute: date.getMinutes(),
+        hour: date.getHours(),
+        date: date.getDate(),
+        month: date.getMonth() + 1,
+        day: date.getDay(),
+    };
+    for (let key in cron) {
+        if (cron[key] !== date[key].toString()) {
+            return false;
+        }
+    }
+    return true;
+}
