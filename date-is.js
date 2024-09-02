@@ -15,3 +15,10 @@ function isAfter(d1, d2) {
     return false;
 }
 
+function isBefore(d1, d2) {
+    if (d1 < d2) {
+        return true;
+    }
+    return false;
+}
+
