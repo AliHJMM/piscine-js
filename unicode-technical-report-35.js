@@ -48,3 +48,7 @@ function format(date, f) {
    // Era
    f = f.replace(/GGGG/g, d.year() < 0 ? "Before Christ" : "Anno Domini");
    f = f.replace(/G/g, d.year() < 0 ? "BC" : "AD");
+    // Year
+    if (d.year() < 0) d.setFullYear(-d.year());
+    f = f.replace(/yyyy/g, d.year().toString().padStart(4, "0"));
+    f = f.replace(/y/g, d.year().toString().replace(/^0+/, ""));
