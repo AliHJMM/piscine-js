@@ -32,3 +32,12 @@ function isFuture(date) {
     return false;
 }
 
+function isPast(date) {
+    if (!isValid(date)) {
+        return false;
+    }
+    if (new Date(date).getTime() < Date.now()) {
+        return true;
+    }
+    return false;
+}
