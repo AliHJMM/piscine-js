@@ -64,3 +64,9 @@ function format(date, f) {
     f = f.replace(/(?<!(M|P|A))M(?!M)/g, d.month() + 1);
     f = f.replace(/MMMM/g, lM[d.month()]);
     f = f.replace(/MMM/g, sM[d.month()].slice(0, 3));
+      // Day of the Week
+      f = f.replace(/EEEE/g, lD[d.getDay()]);
+      f = f.replace(/E/g, sD[d.getDay()].slice(0, 3));
+  
+      return f;
+  }
