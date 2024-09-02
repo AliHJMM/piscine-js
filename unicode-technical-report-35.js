@@ -42,3 +42,6 @@ function format(date, f) {
         // Minute
     f = f.replace(/mm/g, ("0" + d.getMinutes()).slice(-2));
     f = f.replace(/m/g, d.getMinutes());
+  // Second
+  f = f.replace(/ss/g, ("0" + d.getSeconds()).slice(-2));
+  f = f.replace(/s/g, d.getSeconds());
