@@ -19,3 +19,6 @@ function addWeek(date) {
     return secondWeek[(zTime / 86400000) % 14];
 }
 
+function timeTravel(date) {
+    return new Date(date.date.setHours(date.hour, date.minute, date.second));
+}
