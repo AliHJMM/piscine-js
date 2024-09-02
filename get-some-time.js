@@ -25,3 +25,16 @@ function firstDayWeek(week, year) {
     }
     return formatDate(date);
 }
+
+
+function formatDate(date) {
+    let dd = date.getDate();
+    if (dd < 10) dd = "0" + dd;
+    let mm = date.getMonth() + 1;
+    if (mm < 10) mm = "0" + mm;
+    let yy = date.getFullYear().toString();
+    if (yy.length < 4) {
+        yy = "0000".substr(0, 4 - yy.length) + yy;
+    }
+    return dd + "-" + mm + "-" + yy;
+}
