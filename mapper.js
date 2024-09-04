@@ -5,3 +5,11 @@ function map(arr, action) {
     }
     return res;
 }
+
+
+function flatMap(arr, action) {
+    return arr.reduce(
+        (acc, val, i, arr) => acc.concat(action(val, i, arr)),
+        []
+    );
+}
