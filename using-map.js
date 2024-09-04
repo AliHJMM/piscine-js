@@ -12,3 +12,11 @@ function upperCasingStates(arr) {
             .join(" ")
     );
 }
+
+function fahrenheitToCelsius(arr) {
+    return arr.map(
+        (item) =>
+            Math.floor((Number(item.slice(0, -2)) - 32) * (5 / 9)).toString() +
+            "°C"
+    );
+}
