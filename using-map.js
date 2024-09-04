@@ -26,3 +26,18 @@ function trimTemp(arr) {
         return item;
     });
 }
+
+function tempForecasts(arr) {
+    return arr.map((item) => {
+        return `${
+            Math.floor(
+                (Number(item.temperature.slice(0, -2)) - 32) * (5 / 9)
+            ).toString() + "°Celsius"
+        } in ${item.city}, ${item.state
+            .split(" ")
+            .map((word) => {
+                return word[0].toUpperCase() + word.slice(1);
+            })
+            .join(" ")}`;
+    });
+}
