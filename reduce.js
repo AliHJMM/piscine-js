@@ -4,3 +4,10 @@ function fold(arr, f, acc) {
     }
     return acc;
 }
+
+function foldRight(arr, f, acc) {
+    for (var i = arr.length - 1; i >= 0; i--) {
+        acc = f(acc, arr[i], i, arr);
+    }
+    return acc;
+}
