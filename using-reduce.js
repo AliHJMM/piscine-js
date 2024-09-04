@@ -17,3 +17,16 @@ function sumOrMul(arr, value) {
         value === undefined ? 0 : value
     );
 }
+
+function funcExec(arr, value) {
+    return arr.reduce(
+        (acc, item) => {
+            if (typeof item === "function") {
+                return item(acc, value);
+            } else {
+                return acc;
+            }
+        },
+        value === undefined ? 0 : value
+    );
+}
