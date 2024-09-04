@@ -11,3 +11,8 @@ function some(array, test) {
     }
     return false;
 }
+
+
+function none(array, test) {
+    return !some(array, test);
+}
