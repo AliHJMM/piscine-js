@@ -19,3 +19,11 @@ function reduce(arr, f) {
     }
     return acc;
 }
+
+function reduceRight(arr, f) {
+    let acc = arr[arr.length - 1];
+    for (var i = arr.length - 2; i >= 0; i--) {
+        acc = f(acc, arr[i], i, arr);
+    }
+    return acc;
+}
