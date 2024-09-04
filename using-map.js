@@ -20,3 +20,9 @@ function fahrenheitToCelsius(arr) {
             "°C"
     );
 }
+function trimTemp(arr) {
+    return arr.map((item) => {
+        item.temperature = item.temperature.replaceAll(" ", "");
+        return item;
+    });
+}
