@@ -9,3 +9,13 @@ function add3(x) {
         };
     };
 }
+
+function sub4(x) {
+    return function (y) {
+        return function (z) {
+            return function (w) {
+                return x - y - z - w;
+            };
+        };
+    };
+}
