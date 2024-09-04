@@ -17,3 +17,7 @@ function reject(arr, fn) {
     }
     return result;
 }
+
+function partition(arr, fn) {
+    return [filter(arr, fn), reject(arr, fn)];
+}
