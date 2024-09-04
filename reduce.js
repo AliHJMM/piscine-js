@@ -11,3 +11,11 @@ function foldRight(arr, f, acc) {
     }
     return acc;
 }
+
+function reduce(arr, f) {
+    let acc = arr[0];
+    for (var i = 1; i < arr.length; i++) {
+        acc = f(acc, arr[i], i, arr);
+    }
+    return acc;
+}
