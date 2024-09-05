@@ -25,3 +25,5 @@ function getBonannoPisano() {
         document.querySelectorAll("a.classical.active"),
     ];
 }
+
+export { getArchitects, getClassical, getActive, getBonannoPisano };
