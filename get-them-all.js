@@ -4,3 +4,10 @@ function getArchitects() {
         document.querySelectorAll("body span"),
     ];
 }
+
+function getClassical() {
+    return [
+        document.querySelectorAll("a.classical"),
+        document.querySelectorAll("a:not(.classical)"),
+    ];
+}
