@@ -13,11 +13,9 @@ const getActive = () => [
     document.querySelectorAll("a.classical:not(.active)"),
 ];
 
-function getBonannoPisano() {
-    return [
-        document.getElementById("BonannoPisano"),
-        document.querySelectorAll("a.classical.active"),
-    ];
-}
+const getBonannoPisano = () => [
+    document.getElementById("BonannoPisano"),
+    document.querySelectorAll("a.classical.active"),
+];
 
 export { getArchitects, getClassical, getActive, getBonannoPisano };
