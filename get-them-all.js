@@ -11,3 +11,10 @@ function getClassical() {
         document.querySelectorAll("a:not(.classical)"),
     ];
 }
+
+function getActive() {
+    return [
+        document.querySelectorAll("a.classical.active"),
+        document.querySelectorAll("a.classical:not(.active)"),
+    ];
+}
