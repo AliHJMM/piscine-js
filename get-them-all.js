@@ -1,9 +1,7 @@
-function getArchitects() {
-    return [
-        document.querySelectorAll("body a"),
-        document.querySelectorAll("body span"),
-    ];
-}
+const getArchitects = () => [
+    document.querySelectorAll("body a"),
+    document.querySelectorAll("body span"),
+];
 
 function getClassical() {
     return [
