@@ -3,12 +3,10 @@ const getArchitects = () => [
     document.querySelectorAll("body span"),
 ];
 
-function getClassical() {
-    return [
-        document.querySelectorAll("a.classical"),
-        document.querySelectorAll("a:not(.classical)"),
-    ];
-}
+const getClassical = () => [
+    document.querySelectorAll("a.classical"),
+    document.querySelectorAll("a:not(.classical)"),
+];
 
 function getActive() {
     return [
