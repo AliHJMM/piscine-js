@@ -12,3 +12,12 @@ function build(n) {
         }
     }, 100);
 }
+
+function repair(...ids) {
+    ids.forEach((id) => {
+        let brick = document.getElementById(id);
+        brick.getAttribute("foundation")
+            ? (brick.dataset.repaired = "in progress")
+            : (brick.dataset.repaired = true);
+    });
+}
