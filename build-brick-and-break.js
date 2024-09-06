@@ -21,3 +21,8 @@ function repair(...ids) {
             : (brick.dataset.repaired = true);
     });
 }
+
+function destroy() {
+    let bricks = document.getElementsByTagName("div");
+    bricks[bricks.length - 1].remove();
+}
