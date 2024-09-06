@@ -26,3 +26,5 @@ function destroy() {
     let bricks = document.getElementsByTagName("div");
     bricks[bricks.length - 1].remove();
 }
+
+export { build, repair, destroy };
