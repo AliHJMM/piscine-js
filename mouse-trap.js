@@ -96,3 +96,7 @@ class Box {
 document.body.addEventListener("click", (e) => {
     createCircle(e);
 });
+
+document.body.addEventListener("mousemove", (e) => {
+    moveCircle(e);
+});
