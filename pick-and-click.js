@@ -6,3 +6,7 @@ document.addEventListener("click", (e) => {
     pick(e);
     copyHSL();
 });
+
+const hslDiv = document.createElement("div");
+hslDiv.classList.add("hsl");
+document.body.appendChild(hslDiv);
