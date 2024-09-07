@@ -1,4 +1,4 @@
-function generateLetters() {
+const generateLetters = () => {
     for (let i = 0; i < 120; i++) {
         let letter = document.createElement("div");
         letter.style.fontSize = `${11 + i}px`;
@@ -14,6 +14,7 @@ function generateLetters() {
         }
         document.getElementsByTagName("body")[0].appendChild(letter);
     }
-}
+};
+
 
 export { generateLetters };
