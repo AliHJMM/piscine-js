@@ -1,6 +1,6 @@
 import { gossips } from "./gossip-grid.data.js";
 
-const grid() => {
+const grid = () => {
     ranges();
     let form = document.createElement("form");
     form.classList.add("gossip");
@@ -26,7 +26,7 @@ const grid() => {
     renderGossips();
 }
 
-const renderGossips() => {
+const renderGossips =() => {
     gossips.forEach((gossip) => {
         let div = document.createElement("div");
         div.classList.add("gossip");
@@ -35,7 +35,7 @@ const renderGossips() => {
     });
 }
 
-const ranges() => {
+const ranges = () => {
     let ranges = document.createElement("div");
     ranges.classList.add("ranges");
     let widthRange = document.createElement("input");
