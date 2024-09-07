@@ -30,3 +30,11 @@ svg.setAttribute("preserveAspectRatio", "none");
 
 const axisX = document.createElementNS(svgns, "line");
 axisX.id = "axisX";
+
+axisX.setAttribute("x1", "0");
+axisX.setAttribute("y1", "0");
+axisX.setAttribute("x2", "0");
+axisX.setAttribute("y2", "100%");
+axisX.setAttribute("stroke", "red");
+axisX.setAttribute("stroke-width", "3");
+svg.appendChild(axisX);
