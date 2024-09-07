@@ -2,7 +2,7 @@ document.addEventListener("keydown", function (event) {
     compose(event);
 });
 
-function compose(e) {
+const compose = (e) => {
     if (e === undefined) {
         return;
     }
@@ -27,6 +27,7 @@ function compose(e) {
             notes[0].remove();
         }
     }
-}
+};
+
 
 export { compose };
