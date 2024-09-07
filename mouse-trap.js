@@ -1,114 +1,79 @@
-var circles = [];
-var box;
-class Circle {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.diameter = 50;
-        this.isTrapped = false;
-        this.HTML = null;
-        this.draw();
-        circles.push(this);
-    }
+let trapBox;
+let isInsideBox = true;
+let mouseX;
+let mouseY;
+let lastCircle;
 
-    draw() {
-        this.HTML = document.createElement("div");
-        this.HTML.classList.add("circle");
-        this.HTML.style.position = "absolute";
-        this.HTML.style.top = this.y + "px";
-        this.HTML.style.left = this.x + "px";
-        this.HTML.style.background = "white";
-        this.trapped();
-        document.body.appendChild(this.HTML);
-    }
-    move(x, y) {
-        this.trapped();
-        if (!this.isTrapped) {
-            this.x = x;
-            this.y = y;
-            this.HTML.style.top = this.y + "px";
-            this.HTML.style.left = this.x + "px";
+function createCircle() {
+    addEventListener("click", function () {
+        lastCircle = document.createElement("div");
+        lastCircle.className = "circle";
+        if (isInsideBox) {
+            lastCircle.style.background = "white";
+            lastCircle.style.left = mouseX;
+            lastCircle.style.top = mouseY;
         } else {
-            if (this.inReactangle(x, y)) {
-                this.x = x;
-                this.y = y;
-                this.HTML.style.top = this.y + "px";
-                this.HTML.style.left = this.x + "px";
-            } else {
-                if (this.inReactangle(x, this.y)) {
-                    this.x = x;
-                    this.HTML.style.left = this.x + "px";
-                } else if (this.inReactangle(this.x, y)) {
-                    this.y = y;
-                    this.HTML.style.top = this.y + "px";
-                }
+            lastCircle.style.background = 'var(--purple)';
+            lastCircle.style.left = mouseX;
+            lastCircle.style.top = mouseY;
+        }
+        document.body.appendChild(lastCircle);
+        isInsideBox = true;
+    });
+}
+
+function moveCircle() {
+    addEventListener("mousemove", e => {
+        document.querySelectorAll(".tempCircle").forEach((elem) => {
+            elem.remove();
+        });
+        mouseX = e.clientX - 25 + "px";
+        mouseY = e.clientY - 25 + "px";
+        let floatingCircle = document.createElement("div");
+        floatingCircle.className = "circle";
+        floatingCircle.classList.add("tempCircle");
+        if (isInsideBox) {
+            floatingCircle.style.background = "white";
+        } else {
+            floatingCircle.style.background = 'var(--purple)';
+        }
+        floatingCircle.style.left = e.clientX - 25 + "px";
+        floatingCircle.style.top = e.clientY - 25 + "px";
+        document.body.appendChild(floatingCircle);
+
+        let boxBounds = trapBox.getBoundingClientRect();
+        if ((e.clientX >= boxBounds.left + 25 && e.clientX <= boxBounds.right - 25) &&
+            (e.clientY >= boxBounds.top + 25 && e.clientY <= boxBounds.bottom - 25)) {
+            document.querySelector(".circle").style.background = 'var(--purple)';
+            isInsideBox = false;
+        }
+
+        if (!isInsideBox) {
+            if (e.clientX - 25 < boxBounds.left) {
+                floatingCircle.style.left = boxBounds.left + "px";
+                document.querySelector(".circle").style.background = 'var(--purple)';
+            }
+            if (e.clientX + 25 > boxBounds.right) {
+                floatingCircle.style.left = boxBounds.right - 50 + "px";
+                document.querySelector(".circle").style.background = 'var(--purple)';
+            }
+            if (e.clientY - 25 < boxBounds.top) {
+                floatingCircle.style.top = boxBounds.top + "px";
+                document.querySelector(".circle").style.background = 'var(--purple)';
+            }
+            if (e.clientY + 25 > boxBounds.bottom) {
+                floatingCircle.style.top = boxBounds.bottom - 50 + "px";
+                document.querySelector(".circle").style.background = 'var(--purple)';
             }
         }
-    }
-    trapped() {
-        if (
-            this.x > box.x &&
-            this.x + this.diameter < box.x + box.width &&
-            this.y > box.y &&
-            this.y + this.diameter < box.y + box.height
-        ) {
-            this.isTrapped = true;
-            this.HTML.style.background = "var(--purple)";
-        } else {
-            this.isTrapped = false;
-            this.HTML.style.background = "white";
-        }
-    }
-    inReactangle(x, y) {
-        if (
-            x > box.x &&
-            x + this.diameter < box.x + box.width &&
-            y > box.y &&
-            y + this.diameter < box.y + box.height
-        ) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-}
-
-class Box {
-    constructor() {
-        this.HTML = document.createElement("div");
-        this.HTML.classList.add("box");
-        this.HTML.style.position = "absolute";
-        this.HTML.style.top = "50%";
-        this.HTML.style.left = "50%";
-        this.HTML.style.transform = "translate(-50%, -50%)";
-        document.body.appendChild(this.HTML);
-        this.x = this.HTML.offsetLeft - this.HTML.offsetWidth / 2 - 1; 
-        this.y = this.HTML.offsetTop - this.HTML.offsetHeight / 2 - 1;
-        this.width = this.HTML.offsetWidth + 1;
-        this.height = this.HTML.offsetHeight + 1;
-    }
-}
-
-document.body.addEventListener("click", (e) => {
-    createCircle(e);
-});
-
-document.body.addEventListener("mousemove", (e) => {
-    moveCircle(e);
-});
-
-function createCircle(e) {
-    if (e === undefined) return;
-    new Circle(e.clientX - 25, e.clientY - 25);
-}
-
-function moveCircle(e) {
-    if (e === undefined || circles.length === 0) return;
-    circles[circles.length - 1].move(e.clientX - 25, e.clientY - 25);
+    });
 }
 
 function setBox() {
-    box = new Box();
+    trapBox = document.createElement("div");
+    trapBox.className = "box";
+    document.body.appendChild(trapBox);
+    console.log(trapBox.getBoundingClientRect().bottom);
 }
 
 export { createCircle, moveCircle, setBox };
