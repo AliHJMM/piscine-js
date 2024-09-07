@@ -2,8 +2,8 @@ import { styles } from "./pimp-my-style.data.js";
 
 var counter = 0;
 
-function pimp() {
-    var button = document.querySelector("button.button");
+const pimp = () => {
+    const button = document.querySelector("button.button");
     if (!button.classList.contains("unpimp")) {
         button.classList.add(styles[counter]);
         counter++;
@@ -17,6 +17,7 @@ function pimp() {
     if (counter === styles.length) {
         button.classList.toggle("unpimp");
     }
-}
+};
+
 
 export { pimp };
