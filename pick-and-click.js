@@ -78,3 +78,5 @@ async function copyHSL() {
         console.error("Failed to copy: ", err);
     }
 }
+
+export { pick };
