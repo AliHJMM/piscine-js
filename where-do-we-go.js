@@ -16,16 +16,17 @@ document.addEventListener("scroll", () => {
     scroll = window.scrollY;
 });
 
-function explore() {
+const explore = () => {
     places.sort(compareCoordinates);
     console.log(places);
-    places.forEach((place) => {
+    places.forEach(place => {
         createSection(place);
     });
     const compass = document.createElement("div");
     compass.classList.add("direction");
     document.body.appendChild(compass);
-}
+};
+
 
 const createSection = (place) => {
     let section = document.createElement("section");
