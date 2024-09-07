@@ -25,3 +25,12 @@ const grid() => {
     document.body.appendChild(form);
     renderGossips();
 }
+
+function renderGossips() {
+    gossips.forEach((gossip) => {
+        let div = document.createElement("div");
+        div.classList.add("gossip");
+        div.innerHTML = gossip;
+        document.body.appendChild(div);
+    });
+}
