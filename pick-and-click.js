@@ -50,7 +50,7 @@ axisY.setAttribute("stroke-width", "3");
 svg.appendChild(axisY);
 document.body.appendChild(svg);
 
-function pick(e) {
+const pick = (e) => {
     if (e === undefined) return;
     const mouseX = e.clientX;
     const mouseY = e.clientY;
