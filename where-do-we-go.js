@@ -15,3 +15,14 @@ document.addEventListener("scroll", () => {
         : (document.querySelector(".direction").innerHTML = "S");
     scroll = window.scrollY;
 });
+
+function explore() {
+    places.sort(compareCoordinates);
+    console.log(places);
+    places.forEach((place) => {
+        createSection(place);
+    });
+    const compass = document.createElement("div");
+    compass.classList.add("direction");
+    document.body.appendChild(compass);
+}
