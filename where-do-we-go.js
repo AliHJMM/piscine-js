@@ -61,3 +61,10 @@ function selectPlace() {
     location.target = "_blank";
     location.style.color = place.color;
 }
+
+function urlEncodeCoordinates(coordinates) {
+    return coordinates
+        .replaceAll(" ", "%20")
+        .replaceAll("°", "%C2%B0")
+        .replaceAll('"', "%22");
+}
