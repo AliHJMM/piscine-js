@@ -64,7 +64,7 @@ function pick(e) {
     drawLines(mouseX, mouseY);
 }
 
-function drawLines(x, y) {
+const drawLines = (x, y) => {
     axisX.setAttribute("x1", x);
     axisX.setAttribute("x2", x);
     axisY.setAttribute("y1", y);
