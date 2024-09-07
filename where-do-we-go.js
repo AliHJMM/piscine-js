@@ -116,3 +116,5 @@ function compareCoordinates(a, b) {
         }
     }
 }
+
+export { explore };
