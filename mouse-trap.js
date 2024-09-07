@@ -110,3 +110,7 @@ function moveCircle(e) {
     if (e === undefined || circles.length === 0) return;
     circles[circles.length - 1].move(e.clientX - 25, e.clientY - 25);
 }
+
+function setBox() {
+    box = new Box();
+}
