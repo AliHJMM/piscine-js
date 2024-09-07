@@ -14,3 +14,7 @@ document.body.appendChild(hslDiv);
 const hueDiv = document.createElement("div");
 hueDiv.classList.add("hue", "text");
 document.body.appendChild(hueDiv);
+
+const luminosityDiv = document.createElement("div");
+luminosityDiv.classList.add("luminosity", "text");
+document.body.appendChild(luminosityDiv);
