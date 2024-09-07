@@ -39,3 +39,25 @@ function createSection(place) {
     section.style.height = "100vh";
     document.body.appendChild(section);
 }
+
+function selectPlace() {
+    const sectionHeight = window.innerHeight;
+    const scroll = window.scrollY + sectionHeight / 2;
+    const sectionIndex = Math.floor(scroll / sectionHeight);
+    const place = places[sectionIndex];
+    location.textContent = `${place.name}\n${place.coordinates}`;
+    location.href = `https://www.google.com/maps/place/${urlEncodeCoordinates(
+        place.coordinates
+    )}/`;
+    console.log(
+        location.href
+            .split("%C2%B0")
+            .join("°")
+            .split("%22")
+            .join('"')
+            .split("%20")
+            .join(" ")
+    );
+    location.target = "_blank";
+    location.style.color = place.color;
+}
