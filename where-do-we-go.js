@@ -1,1 +1,2 @@
-import { gossips } from "./gossip-grid.data.js";
+import { places } from "./where-do-we-go.data.js";
+
