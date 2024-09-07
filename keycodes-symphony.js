@@ -28,3 +28,5 @@ function compose(e) {
         }
     }
 }
+
+export { compose };
