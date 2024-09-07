@@ -38,3 +38,14 @@ axisX.setAttribute("y2", "100%");
 axisX.setAttribute("stroke", "red");
 axisX.setAttribute("stroke-width", "3");
 svg.appendChild(axisX);
+
+const axisY = document.createElementNS(svgns, "line");
+axisY.id = "axisY";
+axisY.setAttribute("x1", "0");
+axisY.setAttribute("y1", "0");
+axisY.setAttribute("x2", "100%");
+axisY.setAttribute("y2", "0");
+axisY.setAttribute("stroke", "red");
+axisY.setAttribute("stroke-width", "3");
+svg.appendChild(axisY);
+document.body.appendChild(svg);
