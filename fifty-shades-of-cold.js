@@ -29,3 +29,6 @@ function choseShade(shade) {
         div.className = shade;
     });
 }
+
+
+export { generateClasses, generateColdShades, choseShade };
