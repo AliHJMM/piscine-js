@@ -92,3 +92,7 @@ class Box {
         this.height = this.HTML.offsetHeight + 1;
     }
 }
+
+document.body.addEventListener("click", (e) => {
+    createCircle(e);
+});
