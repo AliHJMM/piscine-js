@@ -70,3 +70,11 @@ function drawLines(x, y) {
     axisY.setAttribute("y1", y);
     axisY.setAttribute("y2", y);
 }
+
+async function copyHSL() {
+    try {
+        await navigator.clipboard.writeText(hslDiv.innerHTML);
+    } catch (err) {
+        console.error("Failed to copy: ", err);
+    }
+}
