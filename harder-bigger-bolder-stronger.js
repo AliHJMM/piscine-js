@@ -15,3 +15,5 @@ function generateLetters() {
         document.getElementsByTagName("body")[0].appendChild(letter);
     }
 }
+
+export { generateLetters };
