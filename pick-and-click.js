@@ -71,12 +71,13 @@ function drawLines(x, y) {
     axisY.setAttribute("y2", y);
 }
 
-async function copyHSL() {
+const copyHSL = async () => {
     try {
         await navigator.clipboard.writeText(hslDiv.innerHTML);
     } catch (err) {
         console.error("Failed to copy: ", err);
     }
-}
+};
+
 
 export { pick };
