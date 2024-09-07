@@ -105,3 +105,8 @@ function createCircle(e) {
     if (e === undefined) return;
     new Circle(e.clientX - 25, e.clientY - 25);
 }
+
+function moveCircle(e) {
+    if (e === undefined || circles.length === 0) return;
+    circles[circles.length - 1].move(e.clientX - 25, e.clientY - 25);
+}
