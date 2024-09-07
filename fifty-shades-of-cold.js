@@ -24,11 +24,12 @@ const generateColdShades = () => {
 };
 
 
-function choseShade(shade) {
+const choseShade = (shade) => {
     document.querySelectorAll("div").forEach((div) => {
         div.className = shade;
     });
-}
+};
+
 
 
 export { generateClasses, generateColdShades, choseShade };
