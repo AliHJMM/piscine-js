@@ -49,3 +49,17 @@ axisY.setAttribute("stroke", "red");
 axisY.setAttribute("stroke-width", "3");
 svg.appendChild(axisY);
 document.body.appendChild(svg);
+
+function pick(e) {
+    if (e === undefined) return;
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    const hue = Math.round((mouseX / window.innerWidth) * 360);
+    const luminosity = Math.round((mouseY / window.innerHeight) * 100);
+    const hsl = `hsl(${hue}, 100%, ${luminosity}%)`;
+    document.body.style.background = hsl;
+    hslDiv.innerHTML = hsl;
+    hueDiv.innerHTML = `${hue}`;
+    luminosityDiv.innerHTML = `${luminosity}`;
+    drawLines(mouseX, mouseY);
+}
