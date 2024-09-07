@@ -1,6 +1,6 @@
 import { gossips } from "./gossip-grid.data.js";
 
-function grid() {
+const grid() => {
     ranges();
     let form = document.createElement("form");
     form.classList.add("gossip");
