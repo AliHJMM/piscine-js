@@ -62,3 +62,17 @@ class Circle {
             this.HTML.style.background = "white";
         }
     }
+
+    inReactangle(x, y) {
+        if (
+            x > box.x &&
+            x + this.diameter < box.x + box.width &&
+            y > box.y &&
+            y + this.diameter < box.y + box.height
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
