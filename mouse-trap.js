@@ -100,3 +100,8 @@ document.body.addEventListener("click", (e) => {
 document.body.addEventListener("mousemove", (e) => {
     moveCircle(e);
 });
+
+function createCircle(e) {
+    if (e === undefined) return;
+    new Circle(e.clientX - 25, e.clientY - 25);
+}
