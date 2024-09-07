@@ -114,3 +114,5 @@ function moveCircle(e) {
 function setBox() {
     box = new Box();
 }
+
+export { createCircle, moveCircle, setBox };
