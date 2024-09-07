@@ -35,8 +35,7 @@ const renderGossips() => {
     });
 }
 
-function ranges() {
-    // Ranges
+const ranges() => {
     let ranges = document.createElement("div");
     ranges.classList.add("ranges");
     let widthRange = document.createElement("input");
