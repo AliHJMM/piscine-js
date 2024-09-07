@@ -26,7 +26,7 @@ const grid() => {
     renderGossips();
 }
 
-function renderGossips() {
+const renderGossips() => {
     gossips.forEach((gossip) => {
         let div = document.createElement("div");
         div.classList.add("gossip");
