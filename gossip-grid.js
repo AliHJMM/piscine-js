@@ -79,3 +79,5 @@ const ranges() => {
     ranges.appendChild(backgroundColorRange);
     document.body.appendChild(ranges);
 }
+
+export { grid };
