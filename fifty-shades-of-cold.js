@@ -11,19 +11,18 @@ const generateClasses = () => {
 };
 
 
-function generateColdShades() {
+const generateColdShades = () => {
     const body = document.getElementsByTagName("body")[0];
     colors.forEach((color) => {
-        if (
-            color.match(/(aqua|blue|turquoise|green|cyan|navy|purple)/) !== null
-        ) {
+        if (color.match(/(aqua|blue|turquoise|green|cyan|navy|purple)/) !== null) {
             const div = document.createElement("div");
             div.classList.add(color);
             div.innerHTML = color;
             body.appendChild(div);
         }
     });
-}
+};
+
 
 function choseShade(shade) {
     document.querySelectorAll("div").forEach((div) => {
