@@ -27,7 +27,7 @@ function explore() {
     document.body.appendChild(compass);
 }
 
-function createSection(place) {
+const createSection = (place) => {
     let section = document.createElement("section");
     section.style.background = `url('./where-do-we-go_images/${
         place.name.toLowerCase().replaceAll(/ /g, "-").split(",")[0]
@@ -38,7 +38,8 @@ function createSection(place) {
     section.style.width = "100%";
     section.style.height = "100vh";
     document.body.appendChild(section);
-}
+};
+
 
 const selectPlace = () => {
     const sectionHeight = window.innerHeight;
