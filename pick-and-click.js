@@ -22,3 +22,8 @@ document.body.appendChild(luminosityDiv);
 const svgns = "http://www.w3.org/2000/svg";
 const svg = document.createElement("svg");
 svg.id = "svg";
+
+svg.setAttribute("width", "100%");
+svg.setAttribute("height", "100%");
+svg.setAttribute("viewBox", "0 0 100% 100%");
+svg.setAttribute("preserveAspectRatio", "none");
