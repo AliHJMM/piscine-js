@@ -27,3 +27,6 @@ svg.setAttribute("width", "100%");
 svg.setAttribute("height", "100%");
 svg.setAttribute("viewBox", "0 0 100% 100%");
 svg.setAttribute("preserveAspectRatio", "none");
+
+const axisX = document.createElementNS(svgns, "line");
+axisX.id = "axisX";
