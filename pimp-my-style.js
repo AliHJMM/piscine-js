@@ -18,3 +18,5 @@ function pimp() {
         button.classList.toggle("unpimp");
     }
 }
+
+export { pimp };
