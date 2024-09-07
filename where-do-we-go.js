@@ -26,3 +26,16 @@ function explore() {
     compass.classList.add("direction");
     document.body.appendChild(compass);
 }
+
+function createSection(place) {
+    let section = document.createElement("section");
+    section.style.background = `url('./where-do-we-go_images/${
+        place.name.toLowerCase().replaceAll(/ /g, "-").split(",")[0]
+    }.jpg')`;
+    section.style.backgroundSize = "cover";
+    section.style.backgroundPosition = "center";
+    section.style.backgroundRepeat = "no-repeat";
+    section.style.width = "100%";
+    section.style.height = "100vh";
+    document.body.appendChild(section);
+}
