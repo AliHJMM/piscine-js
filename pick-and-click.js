@@ -18,3 +18,7 @@ document.body.appendChild(hueDiv);
 const luminosityDiv = document.createElement("div");
 luminosityDiv.classList.add("luminosity", "text");
 document.body.appendChild(luminosityDiv);
+
+const svgns = "http://www.w3.org/2000/svg";
+const svg = document.createElement("svg");
+svg.id = "svg";
