@@ -23,3 +23,9 @@ function generateColdShades() {
         }
     });
 }
+
+function choseShade(shade) {
+    document.querySelectorAll("div").forEach((div) => {
+        div.className = shade;
+    });
+}
