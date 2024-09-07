@@ -69,52 +69,33 @@ function urlEncodeCoordinates(coordinates) {
         .replaceAll('"', "%22");
 }
 
-function compareCoordinates(a, b) {
-    const aDirection = a.coordinates.split(" ")[0].split('"')[1];
-    const bDirection = b.coordinates.split(" ")[0].split('"')[1];
-    const aLat = a.coordinates.split(" ")[0];
-    const bLat = b.coordinates.split(" ")[0];
-    let aLatDeg = parseInt(aLat.split("°")[0]);
-    let aLatMin = parseInt(aLat.split("°")[1].split("'")[0]);
-    let aLatSec = parseInt(aLat.split("°")[1].split("'")[1].split('"')[0]);
-    let bLatDeg = parseInt(bLat.split("°")[0]);
-    let bLatMin = parseInt(bLat.split("°")[1].split("'")[0]);
-    let bLatSec = parseInt(bLat.split("°")[1].split("'")[1].split('"')[0]);
-    if (aDirection === "S") {
-        aLatDeg = -aLatDeg;
-        aLatMin = -aLatMin;
-        aLatSec = -aLatSec;
-    }
-    if (bDirection === "S") {
-        bLatDeg = -bLatDeg;
-        bLatMin = -bLatMin;
-        bLatSec = -bLatSec;
-    }
-    if (aLatDeg > bLatDeg) {
-        return -1;
-    }
-    if (aLatDeg < bLatDeg) {
-        return 1;
-    }
-    if (aLatDeg === bLatDeg) {
-        if (aLatMin > bLatMin) {
-            return -1;
+const compareCoordinates = (a, b) => {
+    const parseCoordinates = (coord) => {
+        const direction = coord.split(" ")[0].split('"')[1];
+        const lat = coord.split(" ")[0];
+        let deg = parseInt(lat.split("°")[0]);
+        let min = parseInt(lat.split("°")[1].split("'")[0]);
+        let sec = parseInt(lat.split("°")[1].split("'")[1].split('"')[0]);
+
+        if (direction === "S") {
+            deg = -deg;
+            min = -min;
+            sec = -sec;
         }
-        if (aLatMin < bLatMin) {
-            return 1;
-        }
-        if (aLatMin === bLatMin) {
-            if (aLatSec > bLatSec) {
-                return 1;
-            }
-            if (aLatSec < bLatSec) {
-                return -1;
-            }
-            if (aLatSec === bLatSec) {
-                return 0;
-            }
-        }
-    }
-}
+        return { deg, min, sec };
+    };
+
+    const aParsed = parseCoordinates(a.coordinates);
+    const bParsed = parseCoordinates(b.coordinates);
+
+    return aParsed.deg !== bParsed.deg
+        ? bParsed.deg - aParsed.deg
+        : aParsed.min !== bParsed.min
+        ? bParsed.min - aParsed.min
+        : aParsed.sec !== bParsed.sec
+        ? bParsed.sec - aParsed.sec
+        : 0;
+};
+
 
 export { explore };
