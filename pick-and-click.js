@@ -63,3 +63,10 @@ function pick(e) {
     luminosityDiv.innerHTML = `${luminosity}`;
     drawLines(mouseX, mouseY);
 }
+
+function drawLines(x, y) {
+    axisX.setAttribute("x1", x);
+    axisX.setAttribute("x2", x);
+    axisY.setAttribute("y1", y);
+    axisY.setAttribute("y2", y);
+}
