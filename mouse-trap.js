@@ -1,7 +1,6 @@
 var circles = [];
 var box;
 class Circle {
-
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -11,7 +10,6 @@ class Circle {
         this.draw();
         circles.push(this);
     }
-
     draw() {
         this.HTML = document.createElement("div");
         this.HTML.classList.add("circle");
@@ -22,7 +20,6 @@ class Circle {
         this.trapped();
         document.body.appendChild(this.HTML);
     }
-
     move(x, y) {
         this.trapped();
         if (!this.isTrapped) {
@@ -47,7 +44,6 @@ class Circle {
             }
         }
     }
-
     trapped() {
         if (
             this.x > box.x &&
@@ -62,7 +58,6 @@ class Circle {
             this.HTML.style.background = "white";
         }
     }
-
     inReactangle(x, y) {
         if (
             x > box.x &&
@@ -86,9 +81,9 @@ class Box {
         this.HTML.style.left = "50%";
         this.HTML.style.transform = "translate(-50%, -50%)";
         document.body.appendChild(this.HTML);
-        this.x = this.HTML.offsetLeft - this.HTML.offsetWidth / 2 - 1; // -1 to account for the border
+        this.x = this.HTML.offsetLeft - this.HTML.offsetWidth / 2 - 1; 
         this.y = this.HTML.offsetTop - this.HTML.offsetHeight / 2 - 1;
-        this.width = this.HTML.offsetWidth + 1; // +1 to account for the border
+        this.width = this.HTML.offsetWidth + 1;
         this.height = this.HTML.offsetHeight + 1;
     }
 }
