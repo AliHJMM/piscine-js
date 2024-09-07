@@ -10,7 +10,8 @@ class Circle {
         this.draw();
         circles.push(this);
     }
-    draw = () => {
+
+    draw() {
         this.HTML = document.createElement("div");
         this.HTML.classList.add("circle");
         this.HTML.style.position = "absolute";
@@ -20,7 +21,7 @@ class Circle {
         this.trapped();
         document.body.appendChild(this.HTML);
     }
-    move = (x, y) => {
+    move(x, y) {
         this.trapped();
         if (!this.isTrapped) {
             this.x = x;
@@ -44,7 +45,7 @@ class Circle {
             }
         }
     }
-    trapped = () => {
+    trapped() {
         if (
             this.x > box.x &&
             this.x + this.diameter < box.x + box.width &&
@@ -58,13 +59,17 @@ class Circle {
             this.HTML.style.background = "white";
         }
     }
-    inReactangle = (x, y) => {
-        return (
+    inReactangle(x, y) {
+        if (
             x > box.x &&
             x + this.diameter < box.x + box.width &&
             y > box.y &&
             y + this.diameter < box.y + box.height
-        );
+        ) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
@@ -92,17 +97,17 @@ document.body.addEventListener("mousemove", (e) => {
     moveCircle(e);
 });
 
-const createCircle = (e) => {
+function createCircle(e) {
     if (e === undefined) return;
     new Circle(e.clientX - 25, e.clientY - 25);
 }
 
-const moveCircle = (e) => {
+function moveCircle(e) {
     if (e === undefined || circles.length === 0) return;
     circles[circles.length - 1].move(e.clientX - 25, e.clientY - 25);
 }
 
-const setBox = () => {
+function setBox() {
     box = new Box();
 }
 
