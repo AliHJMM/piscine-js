@@ -1,4 +1,4 @@
-function invert(obj) {
+const invert = (obj) => {
     const invertedObj = {};
     
     for (let key in obj) {
