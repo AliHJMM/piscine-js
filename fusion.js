@@ -1,3 +1,3 @@
-function fusion(obj1, obj2) {
+const fusion = (obj1, obj2) => {
    
 }
