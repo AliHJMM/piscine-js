@@ -1,4 +1,4 @@
-function pick(obj, keys) {
+const pick = (obj, keys) => {
     const keysArray = Array.isArray(keys) ? keys : [keys];
     const pickedObj = {};
 
