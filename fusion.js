@@ -10,7 +10,7 @@ const fusion = (obj1, obj2) => {
         if (Array.isArray(val1) && Array.isArray(val2)) {
             result[key] = val1.concat(val2);
         } else if (typeof val1 === 'string' && typeof val2 === 'string') {
-            result[key] = `${val1} ${val2}`.trim();
+            result[key] = val1 + (val2 ? ' ' + val2 : '');
         } else if (typeof val1 === 'number' && typeof val2 === 'number') {
             result[key] = val1 + val2;
         } else if (typeof val1 === 'object' && typeof val2 === 'object' && val1 !== null && val2 !== null) {
@@ -21,4 +21,4 @@ const fusion = (obj1, obj2) => {
     });
 
     return result;
-}
+};
