@@ -10,3 +10,16 @@ const pick = (obj, keys) => {
 
     return pickedObj;
 }
+
+function omit(obj, keys) {
+    const keysArray = Array.isArray(keys) ? keys : [keys];
+    const omittedObj = {};
+
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key) && !keysArray.includes(key)) {
+            omittedObj[key] = obj[key];
+        }
+    }
+
+    return omittedObj;
+}
