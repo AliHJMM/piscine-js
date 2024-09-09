@@ -11,7 +11,7 @@ const pick = (obj, keys) => {
     return pickedObj;
 }
 
-function omit(obj, keys) {
+const omit = (obj, keys) => {
     const keysArray = Array.isArray(keys) ? keys : [keys];
     const omittedObj = {};
 
