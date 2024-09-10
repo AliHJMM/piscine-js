@@ -17,8 +17,9 @@ const mapKeys = (obj, callback) => {
 }
 
 const reduceKeys = (obj, callback, initialValue) => {
-    return Object.keys(obj)
-        .reduce((accumulator, currentKey) => {
-            return callback(accumulator, currentKey);
-        }, initialValue);
+    let accumulator = initialValue !== undefined ? initialValue : '';
+
+    return Object.keys(obj).reduce((acc, currentKey) => {
+        return callback(acc, currentKey);
+    }, accumulator).replace(/^,\s*/, ''); 
 }
