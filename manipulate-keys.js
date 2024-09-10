@@ -7,7 +7,7 @@ const filterKeys = (obj, predicate) => {
         }, {});
 }
 
-function mapKeys(obj, callback) {
+const mapKeys = (obj, callback) => {
     return Object.keys(obj)
         .map(callback)
         .reduce((res, key, i) => {
