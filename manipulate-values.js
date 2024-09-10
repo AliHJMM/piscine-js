@@ -15,3 +15,11 @@ const filterValues = (obj, callback) => {
     }
     return result;
   }
+
+  function reduceValues(obj, callback, initialValue) {
+    let accumulator = initialValue;
+    for (const value of Object.values(obj)) {
+      accumulator = callback(accumulator, value);
+    }
+    return accumulator;
+  }
