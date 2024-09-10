@@ -1,4 +1,4 @@
-function filterKeys(obj, predicate) {
+const filterKeys = (obj, predicate) => {
     return Object.keys(obj)
         .filter(predicate)
         .reduce((res, key) => {
