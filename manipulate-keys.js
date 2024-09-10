@@ -15,3 +15,10 @@ const mapKeys = (obj, callback) => {
             return res;
         }, {});
 }
+
+const reduceKeys = (obj, callback, initialValue) => {
+    return Object.keys(obj)
+        .reduce((accumulator, currentKey) => {
+            return callback(accumulator, currentKey);
+        }, initialValue);
+}
