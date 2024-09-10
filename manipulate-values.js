@@ -16,10 +16,12 @@ const filterValues = (obj, callback) => {
     return result;
   }
 
-  const reduceValues = (obj, callback, initialValue) => {
-    let accumulator = initialValue;
-    for (const value of Object.values(obj)) {
-      accumulator = callback(accumulator, value);
+  const reduceValues = (obj, callback, acc) => {
+    if (acc === undefined) {
+        acc = 0;
     }
-    return accumulator;
+    for (let key in obj) {
+        acc = callback(acc, obj[key]);
+    }
+    return acc;
   }
