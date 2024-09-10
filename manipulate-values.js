@@ -7,3 +7,11 @@ const filterValues = (obj, callback) => {
     }
     return result;
   }
+
+  function mapValues(obj, callback) {
+    const result = {};
+    for (const [key, value] of Object.entries(obj)) {
+      result[key] = callback(value);
+    }
+    return result;
+  }
