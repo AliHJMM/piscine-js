@@ -21,7 +21,7 @@ const mapCurry=(func)=> {
     };
 }
 
-function reduceCurry(obj1) {
+const reduceCurry = (obj1) => {
     return function (obj2, obj3) {
         let res = obj3;
         for (let key in obj2) {
