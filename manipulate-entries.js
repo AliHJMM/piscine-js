@@ -30,3 +30,14 @@ function filterEntries(obj, callback) {
       return (carbsPer100g * grams) / 100 < 50;
     });
   }
+
+  function cartTotal(cart) {
+    return mapEntries(cart, ([item, grams]) => {
+      const nutritionPer100g = nutritionDB[item];
+      const totalNutrition = {};
+      for (const nutrient in nutritionPer100g) {
+        totalNutrition[nutrient] = (nutritionPer100g[nutrient] * grams) / 100;
+      }
+      return [item, totalNutrition];
+    });
+  }
