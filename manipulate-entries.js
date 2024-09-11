@@ -3,3 +3,9 @@ function filterEntries(obj, callback) {
       Object.entries(obj).filter(([key, value]) => callback([key, value]))
     );
   }
+
+  function mapEntries(obj, callback) {
+    return Object.fromEntries(
+      Object.entries(obj).map(([key, value]) => callback([key, value]))
+    );
+  }
