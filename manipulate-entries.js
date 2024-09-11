@@ -1,45 +1,55 @@
-function filterEntries(obj, callback) {
-    return Object.fromEntries(
-      Object.entries(obj).filter(([key, value]) => callback([key, value]))
+const filterEntries=(obj, filter)=> {
+    let res = {};
+    for (let key in obj) {
+        if (filter([key, obj[key]])) {
+            res[key] = obj[key];
+        }
+    }
+    return res;
+}
+const mapEntries=(entries, mapper)=> {
+    let temp = {};
+    for (let key in entries) {
+        temp[key] = mapper([key, entries[key]]);
+    }
+    let res = {};
+    for (let key in temp) {
+        res[temp[key][0]] = temp[key][1];
+    }
+    return res;
+}
+const reduceEntries=(entries, reducer, initialValue)=> {
+    let acc = initialValue;
+    for (let key in entries) {
+        acc = reducer(acc, [key, entries[key]]);
+    }
+    return acc;
+}
+const lowCarbs=(entries) =>{
+    return filterEntries(entries, (entry) => {let value = (nutritionDB[entry[0]]["carbs"] / 100) * entry[1];return parseInt(value) <= 50;});
+}
+const totalCalories=(entries)=> {
+    return Number(
+        reduceEntries(
+            entries,
+            (acc, curr) => {
+                let value = (nutritionDB[curr[0]]["calories"] / 100) * curr[1];
+                return acc + value;
+            },
+            0
+        ).toFixed(1)
     );
-  }
-
-  function mapEntries(obj, callback) {
-    return Object.fromEntries(
-      Object.entries(obj).map(([key, value]) => callback([key, value]))
-    );
-  }
-
-  function reduceEntries(obj, callback, initialValue) {
-    return Object.entries(obj).reduce(
-      (acc, [key, value]) => callback(acc, [key, value]),
-      initialValue
-    );
-  }
-
-  function totalCalories(cart) {
-    return Math.round(
-      reduceEntries(cart, (total, [item, grams]) => {
-        const caloriesPer100g = nutritionDB[item].calories;
-        return total + (caloriesPer100g * grams) / 100;
-      }, 0) * 10
-    ) / 10; 
-  }
-
-  function lowCarbs(cart) {
-    return filterEntries(cart, ([item, grams]) => {
-      const carbsPer100g = nutritionDB[item].carbs;
-      return (carbsPer100g * grams) / 100 < 50;
-    });
-  }
-
-  function cartTotal(cart) {
-    return mapEntries(cart, ([item, grams]) => {
-      const nutritionPer100g = nutritionDB[item];
-      const totalNutrition = {};
-      for (const nutrient in nutritionPer100g) {
-        totalNutrition[nutrient] = (nutritionPer100g[nutrient] * grams) / 100;
-      }
-      return [item, totalNutrition];
-    });
-  }
+}
+const cartTotal=(entries)=> {
+    let res = {};
+    for (let key in entries) {
+        res[key] = {};
+        for (let dbKey in nutritionDB[key]) {
+            res[key][dbKey] =
+                Math.round(
+                    (entries[key] / 100) * nutritionDB[key][dbKey] * 1000
+                ) / 1000;
+        }
+    }
+    return res;
+}
