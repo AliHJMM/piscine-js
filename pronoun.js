@@ -1,4 +1,4 @@
-function pronoun(str) {
+const pronoun = (str) => {
     var obj = {};
     var arr = str.split("\n").join(" ").split(" ");
     for (var i = 0; i < arr.length; i++) {
