@@ -10,3 +10,13 @@ const defaultCurry=(obj1)=> {
         return res;
     };
 }
+
+function mapCurry(func) {
+    return function (obj2) {
+        let res = {};
+        for (let key in obj2) {
+            res[func([key, obj2[key]])[0]] = func([key, obj2[key]])[1];
+        }
+        return res;
+    };
+}
