@@ -20,3 +20,13 @@ const mapCurry=(func)=> {
         return res;
     };
 }
+
+function reduceCurry(obj1) {
+    return function (obj2, obj3) {
+        let res = obj3;
+        for (let key in obj2) {
+            res = obj1(res, [key, obj2[key]]);
+        }
+        return res;
+    };
+}
