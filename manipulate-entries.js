@@ -16,3 +16,10 @@ function filterEntries(obj, callback) {
       initialValue
     );
   }
+
+  function totalCalories(cart) {
+    return reduceEntries(cart, (total, [item, grams]) => {
+      const caloriesPer100g = nutritionDB[item].calories;
+      return total + (caloriesPer100g * grams) / 100;
+    }, 0);
+  }
