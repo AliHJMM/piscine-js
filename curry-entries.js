@@ -31,7 +31,7 @@ const reduceCurry = (obj1) => {
     };
 }
 
-function filterCurry(obj1) {
+const filterCurry = (obj1) => {
     return function (obj2) {
         let res = {};
         for (let key in obj2) {
