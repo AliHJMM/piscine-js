@@ -1,4 +1,4 @@
-function defaultCurry(obj1) {
+const defaultCurry=(obj1)=> {
     return function (obj2) {
         let res = {};
         for (let key in obj1) {
