@@ -11,7 +11,7 @@ const defaultCurry=(obj1)=> {
     };
 }
 
-function mapCurry(func) {
+const mapCurry=(func)=> {
     return function (obj2) {
         let res = {};
         for (let key in obj2) {
