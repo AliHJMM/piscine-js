@@ -42,3 +42,9 @@ const filterCurry = (obj1) => {
         return res;
     };
 }
+
+function reduceScore(obj1, obj2) {
+    return reduceCurry((acc, [, v]) =>
+        v.isForceUser ? acc + v.pilotingScore + v.shootingScore : acc
+    )(obj1, obj2);
+}
