@@ -23,3 +23,10 @@ function filterEntries(obj, callback) {
       return total + (caloriesPer100g * grams) / 100;
     }, 0);
   }
+
+  function lowCarbs(cart) {
+    return filterEntries(cart, ([item, grams]) => {
+      const carbsPer100g = nutritionDB[item].carbs;
+      return (carbsPer100g * grams) / 100 < 50;
+    });
+  }
