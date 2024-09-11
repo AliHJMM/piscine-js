@@ -15,3 +15,13 @@ const deepCopy = (input) => {
         return input;
     }
 }
+
+const isDefenitelyAnObject = (input) => {
+    return (
+        typeof input === "object" &&
+        !(typeof input === "function") &&
+        !Array.isArray(input) &&
+        input !== null &&
+        !(input instanceof RegExp)
+    );
+}
