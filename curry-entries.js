@@ -30,3 +30,15 @@ const reduceCurry = (obj1) => {
         return res;
     };
 }
+
+function filterCurry(obj1) {
+    return function (obj2) {
+        let res = {};
+        for (let key in obj2) {
+            if (obj1([key, obj2[key]])) {
+                res[key] = obj2[key];
+            }
+        }
+        return res;
+    };
+}
