@@ -9,3 +9,10 @@ function filterEntries(obj, callback) {
       Object.entries(obj).map(([key, value]) => callback([key, value]))
     );
   }
+
+  function reduceEntries(obj, callback, initialValue) {
+    return Object.entries(obj).reduce(
+      (acc, [key, value]) => callback(acc, [key, value]),
+      initialValue
+    );
+  }
