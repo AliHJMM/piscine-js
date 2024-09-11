@@ -60,7 +60,7 @@ const pronoun = (str) => {
     }
     return obj;
 }
-function findNextWord(arr) {
+const findNextWord = (arr) => {
     var pronouns = /^(i|you|he|she|it|they|we)$/i;
     for (var i = 1; i < arr.length; i++) {
         if (pronouns.test(arr[i])) {
