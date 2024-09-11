@@ -48,3 +48,17 @@ const reduceScore = (obj1, obj2) => {
         v.isForceUser ? acc + v.pilotingScore + v.shootingScore : acc
     )(obj1, obj2);
 }
+
+function filterForce(obj) {
+    return filterCurry(([, v]) => v.isForceUser && v.shootingScore >= 80)(obj);
+}
+function mapAverage(obj) {
+    let avgScores = mapCurry(([k, v]) => [
+        k,
+        (v.pilotingScore + v.shootingScore) / 2,
+    ])(obj);
+    for (let key in avgScores) {
+        obj[key].averageScore = avgScores[key];
+    }
+    return obj;
+}
