@@ -10,7 +10,7 @@ function throttle(func, wait) {
     };
 }
 
-function opThrottle(func, wait, { leading = true, trailing = true } = {}) {
+const opThrottle=(func, wait, { leading = true, trailing = true } = {}) => {
     let timeout = null;
     let lastCall = 0;
     let lastArgs;
