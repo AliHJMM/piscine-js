@@ -7,7 +7,7 @@ const debounce=(func, wait)=> {
     };
 }
 
-function opDebounce(func, wait, leading = false) {
+const opDebounce=(func, wait, leading = false)=> {
     let timeout;
     let lastCall = 0;
 
