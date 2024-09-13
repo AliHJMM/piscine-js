@@ -1,4 +1,4 @@
-function throttle(func, wait) {
+const throttle=(func, wait)=> {
     let lastCall = 0;
     
     return function(...args) {
