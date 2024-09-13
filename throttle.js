@@ -9,36 +9,27 @@ const throttle=(f, delay)=> {
     };
 }
 
-const opThrottle=(func, wait, { leading = true, trailing = true } = {}) => {
-    let timeout = null;
-    let lastCall = 0;
-    let lastArgs;
-    let context;
-
-    const invokeFunc = () => {
-        func.apply(context, lastArgs);
-        lastCall = Date.now();
-        timeout = null;
-    };
-
-    return function(...args) {
-        const now = Date.now();
-        context = this;
-        lastArgs = args;
-
-        if (!lastCall && !leading) lastCall = now;
-
-        const remainingTime = wait - (now - lastCall);
-
-        if (remainingTime <= 0 || remainingTime > wait) {
-            if (timeout) {
-                clearTimeout(timeout);
-                timeout = null;
+const opThrottle=(f, delay, { leading = false, trailing = true } = {})=> {
+    let last = 0;
+    let timer = null;
+    return function () {
+        const now = +new Date();
+        if (!last && leading === false) {
+            last = now;
+        }
+        if (now - last > delay) {
+            if (timer) {
+                clearTimeout(timer);
+                timer = null;
             }
-            lastCall = now;
-            func.apply(context, args);
-        } else if (trailing && !timeout) {
-            timeout = setTimeout(invokeFunc, remainingTime);
+            f.apply(this, arguments);
+            last = now;
+        } else if (!timer && trailing !== false) {
+            timer = setTimeout(() => {
+                f.apply(this, arguments);
+                last = +new Date();
+                timer = null;
+            }, delay);
         }
     };
 }
