@@ -5,7 +5,7 @@ function splitWords(word) {
     const sHalf = word.slice(mid);
     return sHalf + fHalf;
 }
-function proArgs(args) {
+const proArgs=(args)=> {
     const words = args.split(' ');
     const result = words.length == 1 ? splitWords(args) : words.map(splitWords).join(' ');
     console.log(result);
